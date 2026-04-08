@@ -20,7 +20,7 @@ EnvSwitch is a minimalist **macOS menu bar app** for switching digital contexts 
 
 1. Clone this repo and open **`EnvSwitch.xcodeproj`** in Xcode.
 2. In the Project Navigator, select the **EnvSwitch** project, then the **EnvSwitch** app target.
-3. Open the **Signing & Capabilities** tab and choose your **Team** so Xcode can sign the debug build (the repo does not ship a team ID or your certificates).
+3. Open the **Signing & Capabilities** tab and choose your **Team** so Xcode can sign the debug build.
 4. Select the **EnvSwitch** scheme and a **My Mac** destination.
 5. Press **⌘R** (**Product → Run**) to build and launch.
 
