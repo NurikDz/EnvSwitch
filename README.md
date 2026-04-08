@@ -1,52 +1,37 @@
 # EnvSwitch
 
-EnvSwitch is a minimalist macOS menu bar application for developers and power users who need to switch between different digital contexts (coding, gaming, relaxing, etc.) quickly.
+EnvSwitch is a minimalist **macOS menu bar app** for switching digital contexts fast—coding, gaming, relaxing, whatever you define. It uses a **“total user control”** approach: no bundled app lists; you create **environments** locally and choose which apps each one launches.
 
-It follows a **“total user control”** philosophy: no pre-assigned apps; environments are defined locally from scratch.
+![Menu bar and environments](ss/screenshot-1.png)
 
-![Screenshot — menu bar & environments](ss/screenshot-1.png)
-
-![Screenshot — settings / app gallery](ss/screenshot-2.png)
-
-## Download
-
-- **Source code:** everything needed to build is in this repo (Swift + Xcode project). Tracked files intentionally omit maintainer-specific signing IDs and team IDs—set those locally in Xcode or in the shell when packaging.
-- **Installable disk image:** a pre-built **`EnvSwitch.dmg`** is attached to **Releases** (example URL pattern: `https://github.com/<username>/EnvSwitch/releases`). The DMG is **not** stored inside git—only uploaded as a release asset.
-
-After download: open the DMG, drag **EnvSwitch** into **Applications**, launch from there.
-
-**Signing, Gatekeeper, and “malware” prompts:**
-
-| What was used | Typical downloader experience |
-|----------------|------------------------------|
-| **Unsigned** | Strongest warnings (“damaged” / blocked). |
-| **Apple Development** (personal dev cert) | Still often blocked or warned for people who did not build it; not meant for wide distribution. |
-| **Developer ID Application** + **notarization** + **staple** | Smoothest path for random Macs; closest to avoiding “can’t be checked for malware” / unknown-developer friction. |
-
-Release DMGs here are documented as **not notarized / not stapled** unless a given release notes says otherwise. If macOS still complains, use **System Settings → Privacy & Security**, **right‑click → Open** once, or **build from source** and sign with a local identity.
+![Settings and app gallery](ss/screenshot-2.png)
 
 ## Features
 
-- **Context switching** — launch groups of apps from the menu bar.
+- **Context switching** — run groups of apps from the menu bar.
 - **System vibes** — optional dark/light mode, wallpaper, and focus-style hiding of other apps per environment.
-- **App gallery** — browse installed apps inside settings.
-- **Dynamic menu bar icon** — reflects the active environment.
-- **SwiftUI** settings UI.
+- **App gallery** — browse installed apps in settings.
+- **Menu bar icon** — reflects the active environment.
+- **SwiftUI** settings.
 
-## Build from source
+## Build with Xcode
 
-1. Clone the repository and open `EnvSwitch.xcodeproj` in **Xcode**.
-2. In **Signing & Capabilities**, select a development team (the repository does not bundle team IDs or personal signing certificates).
-3. **⌘R** to run.
+**Requirements:** macOS **14+** and a recent **Xcode** (Swift 5).
 
-Requires **macOS 14+** and a recent **Xcode** (Swift 5 toolchain).
+1. Clone this repo and open **`EnvSwitch.xcodeproj`** in Xcode.
+2. In the Project Navigator, select the **EnvSwitch** project, then the **EnvSwitch** app target.
+3. Open the **Signing & Capabilities** tab and choose your **Team** so Xcode can sign the debug build (the repo does not ship a team ID or your certificates).
+4. Select the **EnvSwitch** scheme and a **My Mac** destination.
+5. Press **⌘R** (**Product → Run**) to build and launch.
 
-### Optional: package a DMG locally
+To produce a **DMG** locally (optional), see [**RELEASING.md**](RELEASING.md) and `scripts/package-dmg.sh`.
 
-See [**RELEASING.md**](RELEASING.md) and `scripts/package-dmg.sh`. Either set `CODESIGN_IDENTITY` to a keychain signing identity, or use `SKIP_CODESIGN=1` for an unsigned disk image.
+Pre-built **`EnvSwitch.dmg`** builds, when published, are attached on GitHub **Releases**.
 
 ## License
 
-This project is under the **GNU General Public License v3.0 only** ([SPDX: GPL-3.0-only](https://spdx.org/licenses/GPL-3.0-only.html)) — see [LICENSE](LICENSE). Version 3 as published by the FSF; **not** “or any later version.”
+Copyright © 2026 NurikDz
 
-The `LICENSE` file is the **unmodified** GPLv3 legal text from the Free Software Foundation; that document uses standard second-person legal wording required for redistribution.
+EnvSwitch is free software: you may redistribute and/or modify it **only** under the terms of the [**GNU General Public License, version 3**](https://www.gnu.org/licenses/gpl-3.0.html), as published by the Free Software Foundation—**version 3 of the License, and not any later version** (“GPL-3.0-only”).
+
+The complete legal terms are in the [`LICENSE`](LICENSE) file in this repository (the unmodified GPLv3 text from the Free Software Foundation). The SPDX license identifier for this project is **GPL-3.0-only**.
