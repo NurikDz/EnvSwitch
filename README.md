@@ -1,3 +1,4 @@
+#*If this code helped you, please drop a ⭐ to support the project**
 # EnvSwitch
 
 EnvSwitch is a minimalist **macOS menu bar app** for switching digital contexts fast—coding, gaming, relaxing, whatever you define. It uses a **“total user control”** approach: no bundled app lists; you create **environments** locally and choose which apps each one launches.
